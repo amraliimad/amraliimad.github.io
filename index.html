@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio | Amr Ali Imad</title>
+<style>
+:root{--bg:#0a0e1a;--bg2:#111827;--card:#1a2236;--accent:#00d4ff;--accent2:#7c3aed;--text:#e2e8f0;--muted:#8892a4;--border:#1e2d45}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem}
+.logo{font-size:1.3rem;font-weight:700;color:var(--accent)}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem;transition:.3s}
+nav a:hover{color:var(--accent)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 60%,#0f2040 0%,var(--bg) 70%);padding:2rem}
+.hero-tag{display:inline-block;background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.3);padding:.35rem 1rem;border-radius:999px;font-size:.85rem;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
+.btn-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:.8rem 2rem;border-radius:8px;font-size:1rem;cursor:pointer;border:none;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:.5rem}
+.section-title span{color:var(--accent)}
+.section-sub{color:var(--muted);margin-bottom:3rem}
+.divider{width:50px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;margin:.75rem 0 1.5rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center}
+.stat-card .num{font-size:2rem;font-weight:800;color:var(--accent)}
+.stat-card .lbl{color:var(--muted);font-size:.85rem;margin-top:.3rem}
+#skills{background:var(--bg2);max-width:100%;padding:6rem 2rem}
+#skills>*{max-width:1100px;margin-left:auto;margin-right:auto}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.skill-cat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:border-color .3s,transform .3s}
+.skill-cat:hover{border-color:var(--accent);transform:translateY(-4px)}
+.skill-cat h3{font-size:1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{background:rgba(0,212,255,.08);color:var(--accent);border:1px solid rgba(0,212,255,.2);padding:.3rem .8rem;border-radius:6px;font-size:.8rem}
+.tag.purple{background:rgba(124,58,237,.1);color:#a78bfa;border-color:rgba(124,58,237,.3)}
+.tag.green{background:rgba(16,185,129,.1);color:#34d399;border-color:rgba(16,185,129,.3)}
+.tag.orange{background:rgba(245,158,11,.1);color:#fbbf24;border-color:rgba(245,158,11,.3)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:border-color .3s,transform .3s;display:flex;flex-direction:column;gap:1rem}
+.project-card:hover{border-color:var(--accent);transform:translateY(-5px)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start}
+.proj-icon{font-size:2rem}
+.proj-links{display:flex;gap:.7rem}
+.proj-links a{color:var(--muted);text-decoration:none;font-size:.8rem;border:1px solid var(--border);padding:.3rem .7rem;border-radius:6px;transition:.3s}
+.proj-links a:hover{color:var(--accent);border-color:var(--accent)}
+.project-card h3{font-size:1.15rem;font-weight:700}
+.project-card p{color:var(--muted);font-size:.9rem;line-height:1.7;flex:1}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.proj-tag{background:rgba(124,58,237,.12);color:#a78bfa;border:1px solid rgba(124,58,237,.25);padding:.2rem .65rem;border-radius:5px;font-size:.75rem}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--accent2));border-radius:2px}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-2.4rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 8px var(--accent)}
+.tl-date{color:var(--accent);font-size:.8rem;font-weight:600}
+.tl-role{font-size:1.1rem;font-weight:700;margin:.3rem 0}
+.tl-company{color:var(--muted);font-size:.9rem;margin-bottom:.7rem}
+.tl-desc{color:var(--muted);font-size:.9rem;line-height:1.8}
+.tl-desc li{margin-bottom:.4rem}
+#contact{background:var(--bg2);max-width:100%;padding:6rem 2rem}
+.contact-inner{max-width:600px;margin:0 auto;text-align:center}
+.contact-inner p{color:var(--muted);margin-bottom:2.5rem;line-height:1.8}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:.5rem;background:var(--card);border:1px solid var(--border);color:var(--text);text-decoration:none;padding:.8rem 1.5rem;border-radius:10px;transition:.3s}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+@media(max-width:700px){nav{padding:1rem 1.2rem}nav ul{gap:1rem}.about-grid{grid-template-columns:1fr}.hero h1{font-size:2.2rem}}
+</style></head><body>
+<nav><div class="logo">&lt;Amr Ali Imad /&gt;</div><ul>
+<li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav>
+<div class="hero"><div>
+<div class="hero-tag">👋 Available for opportunities</div>
+<h1>Hi, I'm <span>Amr Ali Imad</span><br>Data Engineer</h1>
+<p>I build scalable data pipelines, design robust data architectures, and turn raw data into actionable insights that drive business decisions.</p>
+<div class="btn-group"><a href="#projects" class="btn btn-primary">View My Work</a><a href="#contact" class="btn btn-outline">Get In Touch</a></div>
+</div></div>
+<section id="about"><div class="section-title">About <span>Me</span></div><div class="divider"></div><p class="section-sub">A little bit about who I am and what I do</p>
+<div class="about-grid"><div class="about-text"><p>I'm a passionate Data Engineer with X years of experience building end-to-end data solutions. I specialize in designing and implementing data pipelines, data warehouses, and ETL processes that handle large-scale data efficiently.</p><p>My work bridges the gap between raw data and actionable business intelligence — I love solving complex data challenges and making data reliable, fast, and accessible.</p><p>When I'm not engineering data systems, I enjoy exploring new tools in the data ecosystem and contributing to open-source projects.</p></div>
+<div class="about-stats">
+<div class="stat-card"><div class="num">X+</div><div class="lbl">Years Experience</div></div>
+<div class="stat-card"><div class="num">15+</div><div class="lbl">Projects Delivered</div></div>
+<div class="stat-card"><div class="num">5+</div><div class="lbl">Cloud Platforms</div></div>
+<div class="stat-card"><div class="num">TB+</div><div class="lbl">Data Processed</div></div>
+</div></div></section>
+<section id="skills"><div class="section-title">Tech <span>Stack</span></div><div class="divider"></div><p class="section-sub">Tools and technologies I work with</p>
+<div class="skills-grid">
+    <div class="skill-cat"><h3><span class="icon">🔧</span> Languages</h3>
+    <div class="skill-tags"><span class="tag ">Python</span><span class="tag ">SQL</span><span class="tag ">Bash</span><span class="tag ">Scala</span></div></div>
+    <div class="skill-cat"><h3><span class="icon">⚡</span> Big Data</h3>
+    <div class="skill-tags"><span class="tag purple">Apache Spark</span><span class="tag purple">Kafka</span><span class="tag purple">Hadoop</span><span class="tag purple">Flink</span></div></div>
+    <div class="skill-cat"><h3><span class="icon">🗄️</span> Databases & DWH</h3>
+    <div class="skill-tags"><span class="tag green">Snowflake</span><span class="tag green">BigQuery</span><span class="tag green">Redshift</span><span class="tag green">PostgreSQL</span></div></div>
+    <div class="skill-cat"><h3><span class="icon">☁️</span> Cloud</h3>
+    <div class="skill-tags"><span class="tag orange">AWS</span><span class="tag orange">GCP</span><span class="tag orange">Azure</span><span class="tag orange">S3</span></div></div>
+    <div class="skill-cat"><h3><span class="icon">🔄</span> Orchestration & ETL</h3>
+    <div class="skill-tags"><span class="tag ">Airflow</span><span class="tag ">dbt</span><span class="tag ">Prefect</span><span class="tag ">Dagster</span></div></div>
+    <div class="skill-cat"><h3><span class="icon">📊</span> BI & Visualization</h3>
+    <div class="skill-tags"><span class="tag purple">Power BI</span><span class="tag purple">Tableau</span><span class="tag purple">Looker</span><span class="tag purple">Grafana</span></div></div></div></section>
+<section id="projects"><div class="section-title">Featured <span>Projects</span></div><div class="divider"></div><p class="section-sub">Some of the data engineering work I'm proud of</p>
+<div class="projects-grid"></div></section>
+<section id="experience"><div class="section-title">Work <span>Experience</span></div><div class="divider"></div><p class="section-sub">My professional journey</p>
+<div class="timeline"></div></section>
+<section id="contact"><div class="contact-inner"><div class="section-title">Get In <span>Touch</span></div><div class="divider" style="margin:auto .5rem"></div><br>
+<p>I'm always open to discussing new opportunities, data challenges, or just having a chat about the data engineering ecosystem.</p>
+<div class="contact-links">
+<a href="mailto:amraliimad@email.com" class="contact-link">📧 Email</a>
+<a href="https://www.linkedin.com/in/amr-ali-imad-hafiz/" class="contact-link" target="_blank">💼 LinkedIn</a>
+<a href="https://github.com/amraliimad" class="contact-link" target="_blank">🐙 GitHub</a>
+<a href="your-cv.pdf" class="contact-link" download>📄 Download CV</a>
+<a href="https://wa.me/201102897123" class="contact-link" target="_blank">WhatsApp</a>
+</div></div></section>
+<footer><p>Designed & Built by <span style="color:var(--accent)">Amr</span> · 2026</p></footer>
+</body></html>
